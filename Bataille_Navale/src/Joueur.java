@@ -3,9 +3,9 @@ public class Joueur
 	String pseudo;
 	int parties_gagnées;
 	
-	public jesaispas()
+	public attaque(case)
 	{
-		
+		return le résultat 
 	}
 	
 }
