@@ -1,11 +1,11 @@
 package fr.iutvalence.blancarayt.bataillenavale;
 
+/* TODO JAVADOC. */
 public class TestPlateau {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Plateau plateau = new Plateau();
-		System.out.println(plateau);
-	}
-
+    /* TODO JAVADOC. */
+    public static void main(String[] args) {
+        Plateau plateau = new Plateau();
+        System.out.println(plateau);
+    }
 }

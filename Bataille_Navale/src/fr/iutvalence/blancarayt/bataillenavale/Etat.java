@@ -1,24 +1,18 @@
 package fr.iutvalence.blancarayt.bataillenavale;
+
+/* TODO enum ? */
+
 /**
- * Classe permettant de définir l'état vivant ou mort
+ * Etat d'un bateau.
  *
- * 
  * @author léasilé
- * 
- * 
+ * @version TODO
  */
-public class Etat
-
-	{
-		/**
-		 * L'état vivant
-		 */
-		public final static boolean VIVANT = true;
-
-		/**
-		 * L'état mort
-		 */
-		public final static boolean MORT = false;
-	}
+public class Etat {
+    /** Bateau vivant. */
+    public static final boolean VIVANT = true;
+    /** Bateau mort. */
+    public static final boolean MORT   = false;
+}
 
 

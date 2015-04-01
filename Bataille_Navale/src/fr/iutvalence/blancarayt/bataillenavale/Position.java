@@ -1,32 +1,22 @@
 package fr.iutvalence.blancarayt.bataillenavale;
-/**
- * Classe permettant de représenter une Position
- * 
- * @author léasilé
- * 
- * 
- */
-public class Position 
-{
-	/**
-	 * L'abscisse
-	 */
-	private int abscisse;
-	/**
-	 * L'ordonnée
-	 */
-	private int ordonnee;
-	
-	/**
-	 * Le constructeur de la classe
-	 * 
-	 * @param: abscisse, ordonnée
-	 */
-	public Position(int x, int y)
-	{
-		this.abscisse=x;
-		this.ordonnee=y;
-	}
-	
 
+/* TODO Cette classe est-elle immutable (i.e. peut-on changer de position ?). Si on ne peut changer de position les champs sont finaux. */
+/**
+ * Position sur le plateau.
+ *
+ * @author léasilé
+ * @version TODO
+ */
+public class Position {
+    /** Abscisse. */
+    private int abscisse;
+    /** Ordonnée. */
+    private int ordonnee;
+
+    /* TODO Aucune contrainte sur la position ? */
+    /** Créer une nouvelle position. */
+    public Position(int x, int y) {
+        this.abscisse = x;
+        this.ordonnee = y;
+    }
 }
