@@ -1,12 +1,20 @@
 package fr.iutvalence.blancarayt.bataillenavale;
 
-/* TODO JAVADOC. */
+/** The player */
 public class Joueur {
-    /* TODO Final ? */
-    /* TODO JAVADOC. */
-    private String pseudo;
-    /* TODO JAVADOC. */
+    /** Player's pseudo */
+    private final String pseudo;
+    /** Player's winned games */
     private int partiesGagnees;
+	
+    /**
+	 * @param pseudo
+	 */
+	public Joueur(String pseudo)
+	{
+		this.pseudo = pseudo;
+		this.partiesGagnees = 0;
+	}
 
 /*    public boolean attaque(case) {
         boolean touche = false;

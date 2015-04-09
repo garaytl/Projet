@@ -1,50 +1,71 @@
 package fr.iutvalence.blancarayt.bataillenavale;
 
 /**
- * Case du plateau.
+ * board's box
  *
  * @author léasilé
- * @version TODO
- */
-public class Case {
-    /* TODO JAVADOC. */
-    public static final boolean ABSENCE_DE_BATEAU_PAR_DEFAUT = false;
-    /* TODO JAVADOC. */
-    private final Position posi;
-    /* TODO JAVADOC. */
-    private final boolean  occupeParNavire;
+ * @version 2.0
+ **/
 
-    /**
-     * Construire à la position indiquée, occupée ou non par un navire.
-     *
-     * @param posi1      TODO
-     * @param occupation Etat d'occupation
-     */
-    public Case(Position posi1, boolean occupation) {
-        this.posi = posi1;
-        /* TODO Voir pour une ternaire. */
-        if (!occupation) { this.occupeParNavire = ABSENCE_DE_BATEAU_PAR_DEFAUT; }
-        else { this.occupeParNavire = occupation; }
-    }
+public class Case
+{
+	/** default value : the box isn't occupated by a boat */
+	public static final boolean ABSENCE_DE_BATEAU_PAR_DEFAUT = false;
+	/** boolean who care about the occupation of a boat in a box or not */
+	private boolean hitted;
+	/** boat's reference */
+	public Navire refNavire;
 
-    /**
-     * Obtenir si la case est occupée ou non.
-     *
-     * @return occupe ou non
-     */
+	/**
+	 * Built a box at the position given and place a boat or not
+	 * 
+	 * @param posi1
+	 *            position of the box
+	 * @param occupation
+	 *            if the box is occupated by a boat or not
+	 **/
 
-    public boolean estOccupee() {
-        return this.occupeParNavire;
-    }
+	public Case()
+	{
+		hitted = false;
+		refNavire = null;
+	}
 
-    /**
-     * Retourne une représentation texte de la case, sous la forme d'un symbole
-     * "[O]" si la case est occupée, [ ] si la case est vide.
-     */
-    @Override
-    public String toString() {
-        /* TODO ternaire ? */
-        if (this.occupeParNavire) { return "[0]"; }
-        return "[ ]";
-    }
+	/**
+	 * Return if the box is occupated or not
+	 *
+	 * @return true if the box is occupated and false if it's not
+	 */
+
+	public boolean estOccupee()
+	{
+		return this.refNavire != null;
+	}
+
+	/**
+	 * return a text representation of the box representated with "[O]" if the
+	 * box is occupated and [ ] if the box is empty.
+	 **/
+	@Override
+	public String toString()
+	{
+		if (refNavire != null)
+		{
+			if (refNavire.etat)
+			{
+				if (hitted)
+				{
+					return "[T]"; /*case du bateau touché */
+				}
+				return "[0]"; /* case du  bateau sain */
+			}
+			return "[C]"; /* bateau coulé */
+
+		}
+		if (hitted)
+		{
+			return "[X]"; /* tire dans l'eau */
+		}
+		return "[ ]"; /* case vide saine */
+	}
 }
