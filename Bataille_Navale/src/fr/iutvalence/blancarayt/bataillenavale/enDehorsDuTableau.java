@@ -1,28 +1,9 @@
-/**
- * 
- */
 package fr.iutvalence.blancarayt.bataillenavale;
 
-/**
- * @author garaytl
- *
- */
-public class enDehorsDuTableau extends Exception
-{
-
-	/**
-	 * 
-	 */
-	public enDehorsDuTableau()
-	{
+/* TODO JAVADOC. */
+/* TODO Translate and repest Java syntax convention. */
+public class enDehorsDuTableau extends Exception {
+	/* TODO This constructor should not be used. Prefer a message or a throwable. */
+	public enDehorsDuTableau() {
 	}
-
-	/**
-	 * @param arg0
-	 */
-	public enDehorsDuTableau(String arg0)
-	{
-		super(arg0);
-	}
-
 }

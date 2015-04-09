@@ -49,14 +49,14 @@ public class Plateau
 			throw new enDehorsDuTableau();
 			}
 		
-		cases[x][y].refNavire = navire;
+		cases[x][y].boat = navire;
 		int i;
 		boolean b;
 		for (i = 0; i < navire.taille; i++)
 		{
 			if (direction == Direction.GAUCHE)
 			{
-				if (cases[x-i][y].refNavire!=null)
+				if (cases[x-i][y].boat !=null)
 				{
 					throw new caseOccupee();
 					}
@@ -65,9 +65,9 @@ public class Plateau
 					throw new enDehorsDuTableau();
 					}
 			} 
-			else if (direction == Direction.droite)
+			else if (direction == Direction.DROITE)
 			{	
-				if (cases[x+i][y].refNavire!=null)
+				if (cases[x+i][y].boat !=null)
 				{
 					throw new caseOccupee();
 					}
@@ -76,9 +76,9 @@ public class Plateau
 					throw new enDehorsDuTableau();
 					}
 			} 
-			else if (direction == Direction.haut)
+			else if (direction == Direction.HAUT)
 			{	
-				if (cases[x][y-i].refNavire!=null)
+				if (cases[x][y-i].boat !=null)
 				{
 					throw new caseOccupee();
 					}
@@ -87,9 +87,9 @@ public class Plateau
 					throw new enDehorsDuTableau();
 					}
 			} 
-			else if (direction == Direction.bas)
+			else if (direction == Direction.BAS)
 			{
-				if (cases[x][y+i].refNavire!=null)
+				if (cases[x][y+i].boat !=null)
 				{
 					throw new caseOccupee();
 					}
@@ -103,19 +103,19 @@ public class Plateau
 		{
 			if (direction == Direction.GAUCHE)
 			{
-				cases[x-i][y].refNavire=navire;
+				cases[x-i][y].boat =navire;
 			} 
-			else if (direction == Direction.droite)
+			else if (direction == Direction.DROITE)
 			{	
-				cases[x+i][y].refNavire=navire;
+				cases[x+i][y].boat =navire;
 			} 
-			else if (direction == Direction.haut)
+			else if (direction == Direction.HAUT)
 			{	
-				cases[x][y-i].refNavire=navire;
+				cases[x][y-i].boat =navire;
 			} 
-			else if (direction == Direction.bas)
+			else if (direction == Direction.BAS)
 			{
-				cases[x][y+i].refNavire=navire;
+				cases[x][y+i].boat =navire;
 			}
 		}
 	}

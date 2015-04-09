@@ -1,14 +1,9 @@
 package fr.iutvalence.blancarayt.bataillenavale;
 
-public class caseOccupee extends Exception
-{
-
-	public caseOccupee()
-	{
-	}
-
-	public caseOccupee(String message)
-	{
-		super(message);
-	}
+/* TODO JAVADOC. */
+/* TODO Translate and repest Java syntax convention. */
+public class caseOccupee extends Exception {
+    /* TODO This constructor should not be used. Prefer a message or a throwable. */
+    public caseOccupee() {
+    }
 }

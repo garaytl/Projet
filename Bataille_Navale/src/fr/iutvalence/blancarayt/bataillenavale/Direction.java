@@ -1,13 +1,17 @@
-/**
- * 
- */
 package fr.iutvalence.blancarayt.bataillenavale;
 
-/**
- * @author garaytl
- *
- */
-public enum Direction
-{
-	GAUCHE, droite, haut, bas;
+/* TODO JAVADOC. */
+public enum Direction {
+    /* TODO Translate. */
+    /* TODO JAVADOC. */
+    GAUCHE,
+    /* TODO JAVADOC. */
+	/* TODO Translate. */
+    DROITE,
+    /* TODO JAVADOC. */
+	/* TODO Translate. */
+    HAUT,
+    /* TODO JAVADOC. */
+	/* TODO Translate. */
+    BAS
 }
