@@ -1,17 +1,21 @@
 package fr.iutvalence.blancarayt.bataillenavale;
 
-/* TODO JAVADOC. */
+/**
+ * boat's direction (to place it on the board).
+ *
+ * @author léasilé
+ * @version 2.0
+ */
 public enum Direction {
-    /* TODO Translate. */
-    /* TODO JAVADOC. */
-    GAUCHE,
-    /* TODO JAVADOC. */
-	/* TODO Translate. */
-    DROITE,
-    /* TODO JAVADOC. */
-	/* TODO Translate. */
-    HAUT,
-    /* TODO JAVADOC. */
-	/* TODO Translate. */
-    BAS
+	/** to the left */
+    LEFT,
+    
+   /** to the right */
+    RIGHT,
+    
+   /** up */
+    UP,
+    
+    /** down */
+    DOWN
 }

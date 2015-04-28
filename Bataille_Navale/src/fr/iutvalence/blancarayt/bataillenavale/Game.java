@@ -1,12 +1,20 @@
 package fr.iutvalence.blancarayt.bataillenavale;
 
-/* TODO JAVADOC. */
+/**
+ * Battleship's game.
+ *
+ * @author léasilé
+ * @version 2.0
+ */
 public class Game {
-	/* TODO JAVADOC. */
-	/* TODO Translate. */
-	private Joueur joueur1;
-	/* TODO JAVADOC. */
-	/* TODO Translate. */
-	private Joueur joueur2;
-	/* TODO. */
+	/**
+	 * Player 1
+	 */
+	private Player player1;
+
+	/**
+	 * Player 2
+	 */
+	private Player player2;
+	/* TODO attribution de plateau / rentré de bateau */
 }
