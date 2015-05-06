@@ -4,13 +4,10 @@ package fr.iutvalence.blancarayt.bataillenavale;
  * @author garaytl
  *
  */
-
-/* TODO Translate. */
-/* TODO JAVADOC. */
-public class TestPlateau {
+public class Battleship {
     /* TODO JAVADOC. */
     public static void main(String[] args) {
-        Board plateau = new Board();
-        System.out.println(plateau);
+        Game game = new Game();
+        game.start();
     }
 }

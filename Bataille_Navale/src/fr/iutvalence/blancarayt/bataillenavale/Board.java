@@ -110,4 +110,20 @@ public class Board
 
 		return casesRepresentation.toString();
 	}
+	
+	public String toLimitedString()
+	{
+		StringBuilder casesRepresentation = new StringBuilder(3*NUMBER_OF_LINE*(NUMBER_OF_COLUMN+1));
+
+		for (int linesNumber = 0; linesNumber < NUMBER_OF_LINE; linesNumber++)
+		{
+			for (int columnsNumber = 0; columnsNumber < NUMBER_OF_COLUMN; columnsNumber++)
+			{
+				Case c = cases[linesNumber][columnsNumber];
+				casesRepresentation.append((c.occupated() && !c.hitted()) ? "[ ]" : c);	
+			}
+			casesRepresentation.append("\n");
+		}
+		return casesRepresentation.toString();
+	}
 }

@@ -35,6 +35,9 @@ public class Case {
         return this.boat != null;
     }
 
+    public boolean hitted() {
+    	return hitted;
+    }
     /**
      * return a text representation of the box representated with "[O]" if the
      * box is occupated and safe, [T] if the box is occupated and was hited,
