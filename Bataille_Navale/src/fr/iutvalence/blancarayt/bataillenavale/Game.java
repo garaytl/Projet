@@ -39,11 +39,12 @@ public class Game
 		Boat submarine3 = new Submarine();
 		askBoat(submarine3, player2);
 		Boat submarine4 = new Submarine();
-		askBoat(submarine4, player1);
+		askBoat(submarine4, player2);
 		Boat battleCruiser2 = new BattleCruiser();
 		askBoat(battleCruiser2, player2);
 		Boat destroyer3 = new Destroyer();
 		askBoat(destroyer3, player2);
+		attack(player1, player2);
 
 	}
 
@@ -71,7 +72,54 @@ public class Game
 		}
 		return direction;
 	}
+	
 
+	private String attack(Player attackPlayer, Player hittedPlayer){
+		Scanner sc = new Scanner(System.in);
+		System.out.println(attackPlayer+" ! Tip the coordonee of your attack ! (Letter and number)");
+		String coor = sc.next();
+		String coorUp = coor.toUpperCase().trim();
+		String strx= coorUp.substring(0,1);
+		String stry=null;
+		boolean yValid=true;
+		do{
+			yValid=true;
+			if (coorUp.length()==2){
+				stry= coorUp.substring(1,2);
+			}
+			else if (coorUp.length()==3){
+				stry= coorUp.substring(1,3);
+			}
+			else 
+				yValid=false;
+		}while(!yValid);
+		int y = Integer.parseInt(stry);
+		int x = strx.toCharArray()[0];
+		x=x-1;
+		y=y-1;
+		String result;
+		if (hittedPlayer.board.cases[x][y].boat!=null)
+		{
+			hittedPlayer.board.cases[x][y].boat.hitted();
+			if (hittedPlayer.board.cases[x][y].boat.condition = false)
+			{
+				result = "Coulé !";
+			}
+			else
+			{
+				result = "Touché !";
+			}
+			
+		}
+		else
+		{
+			result = "A l'eau..";
+		}
+		hittedPlayer.board.cases[x][y].hit();
+		return result;
+	}
+
+	
 	private void askBoat(Boat boat, Player player)
 	{
 		Scanner sc = new Scanner(System.in);

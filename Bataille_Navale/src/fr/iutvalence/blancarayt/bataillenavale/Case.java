@@ -38,6 +38,10 @@ public class Case {
     public boolean hitted() {
     	return hitted;
     }
+    
+    public void hit(){
+    	this.hitted=true;
+    }
     /**
      * return a text representation of the box representated with "[O]" if the
      * box is occupated and safe, [T] if the box is occupated and was hited,

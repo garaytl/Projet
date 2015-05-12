@@ -14,7 +14,7 @@ public class Board
 	/** The number of column */
 	private static final int NUMBER_OF_COLUMN = 10;
 	/** board's boxes */
-	private final Case[][] cases;
+	protected final Case[][] cases;
 
 	/** built a new empty board */
 	public Board()
