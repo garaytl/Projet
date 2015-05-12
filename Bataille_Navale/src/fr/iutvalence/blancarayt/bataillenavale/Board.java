@@ -97,12 +97,13 @@ public class Board
 	public String toString()
 	{
 		StringBuilder casesRepresentation = new StringBuilder(NUMBER_OF_LINE*(NUMBER_OF_COLUMN+1));
-		casesRepresentation.append(" ");
+		casesRepresentation.append("Our board : \n");
+		casesRepresentation.append("  ");
 		for (int columnsNumber = 0; columnsNumber < NUMBER_OF_COLUMN-1; columnsNumber++)
 		{
 			casesRepresentation.append(" "+(columnsNumber+1)+" ");
 		}
-		casesRepresentation.append(" 10\n");
+		casesRepresentation.append("10\n");
 		for (int linesNumber = 0; linesNumber < NUMBER_OF_LINE; linesNumber++)
 		{
 			casesRepresentation.append((char)(65+linesNumber)+" ");
@@ -120,9 +121,16 @@ public class Board
 	public String toLimitedString()
 	{
 		StringBuilder casesRepresentation = new StringBuilder(3*NUMBER_OF_LINE*(NUMBER_OF_COLUMN+1));
-
+		casesRepresentation.append("Ennemy's board : \n");
+		casesRepresentation.append("  ");
+		for (int columnsNumber = 0; columnsNumber < NUMBER_OF_COLUMN-1; columnsNumber++)
+		{
+			casesRepresentation.append(" "+(columnsNumber+1)+" ");
+		}
+		casesRepresentation.append(" 10\n");
 		for (int linesNumber = 0; linesNumber < NUMBER_OF_LINE; linesNumber++)
 		{
+			casesRepresentation.append((char)(65+linesNumber)+" ");
 			for (int columnsNumber = 0; columnsNumber < NUMBER_OF_COLUMN; columnsNumber++)
 			{
 				Case c = cases[linesNumber][columnsNumber];

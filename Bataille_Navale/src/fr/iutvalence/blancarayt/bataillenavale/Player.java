@@ -9,8 +9,6 @@ package fr.iutvalence.blancarayt.bataillenavale;
 public class Player {
     /** Player's pseudo. */
     private final String pseudo;
-	/** Player's winned games. */
-    private int winnedGames;
     /** The player's board with his boats.*/
     protected Board board;
     /** The player's boats alive*/
@@ -23,7 +21,6 @@ public class Player {
      */
     public Player(String pseudo) {
         this.pseudo = pseudo;
-        this.winnedGames = 0;
         this.board = new Board();
         this.pv=0;
     }

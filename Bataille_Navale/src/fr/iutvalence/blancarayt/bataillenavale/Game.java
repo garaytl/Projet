@@ -20,11 +20,16 @@ public class Game
 	 */
 	private Player player2;
 
+	public Game(String pseudo1, String pseudo2)
+	{
+		this.player1 = new Player(pseudo1);
+		this.player2 = new Player(pseudo2);
+	}
+
 	public void start()
 	{
 		Boat aircraftCarrier1 = new AircraftCarrier();
 		askBoat(aircraftCarrier1, player1);
-		player1.addPv();
 		/*Boat submarine1 = new Submarine();
 		askBoat(submarine1, player1);
 		Boat submarine2 = new Submarine();
@@ -32,8 +37,8 @@ public class Game
 		Boat battleCruiser1 = new BattleCruiser();
 		askBoat(battleCruiser1, player1);
 		Boat destroyer1 = new Destroyer();
-		askBoat(destroyer1, player1);
-		/*TODO clear console*/
+		askBoat(destroyer1, player1);*/
+		clearConsole();
 		/*Boat aircraftCarrier2 = new AircraftCarrier();
 		askBoat(aircraftCarrier2, player2);
 		Boat submarine3 = new Submarine();
@@ -44,19 +49,21 @@ public class Game
 		askBoat(battleCruiser2, player2);*/
 		Boat destroyer3 = new Destroyer();
 		askBoat(destroyer3, player2);
-		player2.addPv();
-		/*TODO clear console*/
-		while (Alive(player1) && Alive(player2)){
-			/*TODO clear console, affichage player1 +hidden player 2*/
-		attack(player1, player2);
-			/*TODO clear console, affichage player2 +hidden player 1*/
-		attack(player2, player1);
+		clearConsole();
+		while (Alive(player1) && Alive(player2))
+		{
+			display(player1, player2);
+			attack(player1, player2);
+			display(player2, player1);
+			attack(player2, player1);
 		}
 		System.out.println("End of the game :");
-		if (Alive(player1)){
+		if (Alive(player1)==true)
+		{
 			System.out.print(player1);
 		}
-		else{
+		else
+		{
 			System.out.print(player2);
 		}
 		System.out.print(" have win !");
@@ -64,12 +71,34 @@ public class Game
 	}
 	
 	private boolean Alive(Player player){
-		boolean b=true;
-		if (player.getPv()==0)
-		{
-			b=false;
-		}
-		return b;
+		return !(player.getPv()==0);
+	}
+	
+	public void display(Player attackPlayer, Player hittedPlayer){
+		clearConsole();
+		System.out.println(attackPlayer.board.toString());
+		System.out.println(hittedPlayer.board.toLimitedString());
+	}
+	
+	public final static void clearConsole()
+	{
+	    try
+	    {
+	        final String os = System.getProperty("os.name");
+
+	        if (os.contains("Windows"))
+	        {
+	            Runtime.getRuntime().exec("cls");
+	        }
+	        else
+	        {
+	            Runtime.getRuntime().exec("clear");
+	        }
+	    }
+	    catch (final Exception e)
+	    {
+	        //  Handle any exceptions.
+	    }
 	}
 
 	private Direction stringToDirection(String dir) throws UnvalidDirection
@@ -97,13 +126,16 @@ public class Game
 		return direction;
 	}
 	
-
+	/*TODO JAVADOC*/
+	
+	/*TODO method check tire valide (hors du tableau et / ou deja used)*/
 	private void attack(Player attackPlayer, Player hittedPlayer){
 		Scanner sc = new Scanner(System.in);
 		System.out.println(attackPlayer+" ! Tip the coordonee of your attack ! (Letter and number)");
 		boolean yValid=true;
 		String stry=null;
 		String strx=null;
+		/*TODO method traduction des lettre + chiffre en x et y*/
 		do{
 			String coor = sc.next();
 			String coorUp = coor.toUpperCase().trim();
@@ -128,8 +160,8 @@ public class Game
 			hittedPlayer.board.cases[x][y].boat.hitted();
 			if (hittedPlayer.board.cases[x][y].boat.condition == false)
 			{
-				result = "Coulé !";
-				player1.subPv();
+				result = "Coulé ! "+(hittedPlayer.getPv()-1)+" boat left";
+				hittedPlayer.subPv();
 			}
 			else
 			{
@@ -186,12 +218,6 @@ public class Game
 			}
 		} while (!correctPlace);
 		System.out.println(player.board.toString());
-	}
-
-	public Game(String pseudo1, String pseudo2)
-	{
-		this.player1 = new Player(pseudo1);
-		this.player2 = new Player(pseudo2);
-
+		player.addPv();
 	}
 }
