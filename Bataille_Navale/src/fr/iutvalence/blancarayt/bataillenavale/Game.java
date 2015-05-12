@@ -22,10 +22,10 @@ public class Game
 
 	public void start()
 	{
-		// TODO sysout de la grid
 		Boat aircraftCarrier1 = new AircraftCarrier();
 		askBoat(aircraftCarrier1, player1);
-		Boat submarine1 = new Submarine();
+		player1.addPv();
+		/*Boat submarine1 = new Submarine();
 		askBoat(submarine1, player1);
 		Boat submarine2 = new Submarine();
 		askBoat(submarine2, player1);
@@ -33,19 +33,43 @@ public class Game
 		askBoat(battleCruiser1, player1);
 		Boat destroyer1 = new Destroyer();
 		askBoat(destroyer1, player1);
-		
-		Boat aircraftCarrier2 = new AircraftCarrier();
+		/*TODO clear console*/
+		/*Boat aircraftCarrier2 = new AircraftCarrier();
 		askBoat(aircraftCarrier2, player2);
 		Boat submarine3 = new Submarine();
 		askBoat(submarine3, player2);
 		Boat submarine4 = new Submarine();
 		askBoat(submarine4, player2);
 		Boat battleCruiser2 = new BattleCruiser();
-		askBoat(battleCruiser2, player2);
+		askBoat(battleCruiser2, player2);*/
 		Boat destroyer3 = new Destroyer();
 		askBoat(destroyer3, player2);
+		player2.addPv();
+		/*TODO clear console*/
+		while (Alive(player1) && Alive(player2)){
+			/*TODO clear console, affichage player1 +hidden player 2*/
 		attack(player1, player2);
+			/*TODO clear console, affichage player2 +hidden player 1*/
+		attack(player2, player1);
+		}
+		System.out.println("End of the game :");
+		if (Alive(player1)){
+			System.out.print(player1);
+		}
+		else{
+			System.out.print(player2);
+		}
+		System.out.print(" have win !");
 
+	}
+	
+	private boolean Alive(Player player){
+		boolean b=true;
+		if (player.getPv()==0)
+		{
+			b=false;
+		}
+		return b;
 	}
 
 	private Direction stringToDirection(String dir) throws UnvalidDirection
@@ -74,15 +98,16 @@ public class Game
 	}
 	
 
-	private String attack(Player attackPlayer, Player hittedPlayer){
+	private void attack(Player attackPlayer, Player hittedPlayer){
 		Scanner sc = new Scanner(System.in);
 		System.out.println(attackPlayer+" ! Tip the coordonee of your attack ! (Letter and number)");
-		String coor = sc.next();
-		String coorUp = coor.toUpperCase().trim();
-		String strx= coorUp.substring(0,1);
-		String stry=null;
 		boolean yValid=true;
+		String stry=null;
+		String strx=null;
 		do{
+			String coor = sc.next();
+			String coorUp = coor.toUpperCase().trim();
+			strx= coorUp.substring(0,1);
 			yValid=true;
 			if (coorUp.length()==2){
 				stry= coorUp.substring(1,2);
@@ -95,15 +120,16 @@ public class Game
 		}while(!yValid);
 		int y = Integer.parseInt(stry);
 		int x = strx.toCharArray()[0];
-		x=x-1;
+		x=x-65;
 		y=y-1;
 		String result;
 		if (hittedPlayer.board.cases[x][y].boat!=null)
 		{
 			hittedPlayer.board.cases[x][y].boat.hitted();
-			if (hittedPlayer.board.cases[x][y].boat.condition = false)
+			if (hittedPlayer.board.cases[x][y].boat.condition == false)
 			{
 				result = "Coulé !";
+				player1.subPv();
 			}
 			else
 			{
@@ -116,7 +142,8 @@ public class Game
 			result = "A l'eau..";
 		}
 		hittedPlayer.board.cases[x][y].hit();
-		return result;
+		System.out.println(hittedPlayer.board.toLimitedString());
+		System.out.println(result);
 	}
 
 	
