@@ -19,4 +19,7 @@ public class Submarine extends Boat {
     public Submarine() {
         super(SIZE);
     }
+    public String toString(){
+		return ("Submarine (" +SIZE+ " case)");
+    }
 }

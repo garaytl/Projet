@@ -19,4 +19,8 @@ public class Destroyer extends Boat {
     public Destroyer() {
         super(SIZE);
     }
+
+    public String toString(){
+		return ("Destroyer (" +SIZE+ " case)");
+    }
 }

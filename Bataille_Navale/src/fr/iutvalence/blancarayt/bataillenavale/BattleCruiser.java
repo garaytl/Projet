@@ -19,4 +19,8 @@ public class BattleCruiser extends Boat {
     public BattleCruiser() {
         super(SIZE);
     }
+    
+    public String toString(){
+		return ("BattleCruiser (" +SIZE+ " case)");
+    }
 }

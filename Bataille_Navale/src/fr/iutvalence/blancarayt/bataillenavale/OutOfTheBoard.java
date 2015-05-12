@@ -10,6 +10,6 @@ package fr.iutvalence.blancarayt.bataillenavale;
 public class OutOfTheBoard extends Exception {
 	/* TODO This constructor should not be used. Prefer a message or a throwable. */
 	public OutOfTheBoard(String message) {
-		super(message);
+		super("Coodonate out of the board : "+message);
 	}
 }

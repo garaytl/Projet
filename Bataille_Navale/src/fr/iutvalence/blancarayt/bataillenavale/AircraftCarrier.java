@@ -19,4 +19,7 @@ public class AircraftCarrier extends Boat {
     public AircraftCarrier() {
         super(SIZE);
     }
+    public String toString(){
+		return ("AircraftCarrier (" +SIZE+ " case)");
+    }
 }
