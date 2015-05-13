@@ -1,9 +1,9 @@
 package fr.iutvalence.blancarayt.bataillenavale;
 
-public class UnvalidDirection extends Exception
+public class UnvalidInput extends Exception
 {
 	/* TODO This constructor should not be used. Prefer a message or a throwable. */
-    public UnvalidDirection(String message) {
+    public UnvalidInput(String message) {
     	super(message);
     }
 }

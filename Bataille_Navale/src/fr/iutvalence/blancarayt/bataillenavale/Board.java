@@ -30,7 +30,7 @@ public class Board
 		}
 	}
 
-	private void checkCoordinate(int x, int y) throws Occupated, OutOfTheBoard {
+	protected void checkCoordinate(int x, int y) throws Occupated, OutOfTheBoard {
 		if (x > NUMBER_OF_LINE)
 		{
 			throw new OutOfTheBoard(String.format("x: %d > %d", x+1, NUMBER_OF_LINE));

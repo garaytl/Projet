@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class Battleship {
     /* TODO JAVADOC. */
-    public static void main(String[] args) throws UnvalidDirection, OutOfTheBoard, Occupated {
+    public static void main(String[] args) throws UnvalidInput, OutOfTheBoard, Occupated {
     	Scanner sc = new Scanner(System.in);
     	System.out.println("Type the first player's pseudo");
 		String pseudo1 =sc.nextLine();

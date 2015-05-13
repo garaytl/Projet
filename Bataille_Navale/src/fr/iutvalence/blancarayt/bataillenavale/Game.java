@@ -101,7 +101,7 @@ public class Game
 	    }
 	}
 
-	private Direction stringToDirection(String dir) throws UnvalidDirection
+	private Direction stringToDirection(String dir) throws UnvalidInput
 	{
 		Direction direction;
 		String dirUp = dir.toUpperCase().trim();
@@ -120,40 +120,70 @@ public class Game
 			direction = Direction.DOWN;
 			break;
 		default:
-			throw new UnvalidDirection("The direction " + dir
+			throw new UnvalidInput("The direction " + dir
 					+ " is invalid please type LEFT, RIGHT, UP or DOWN");
 		}
 		return direction;
 	}
 	
-	/*TODO JAVADOC*/
+	/*TODO poser bateau = en lettre+ chiffre*/
 	
-	/*TODO method check tire valide (hors du tableau et / ou deja used)*/
-	private void attack(Player attackPlayer, Player hittedPlayer){
-		Scanner sc = new Scanner(System.in);
-		System.out.println(attackPlayer+" ! Tip the coordonee of your attack ! (Letter and number)");
-		boolean yValid=true;
+	/*TODO JAVADOC*/
+	private boolean checkTirValid(int x, int y, Player hittedPlayer){
+			try
+			{
+				hittedPlayer.board.checkCoordinate(x, y);
+			}
+			catch (Occupated e)
+			{
+			}
+			catch (OutOfTheBoard e)
+			{
+				System.err.println(e.getMessage());
+				return false;
+			}
+			if (hittedPlayer.board.cases[x][y].hitted() == true)
+					System.out.println("Case already attacked");
+		return !hittedPlayer.board.cases[x][y].hitted();
+	}
+	
+	private int[] stringToInt(String string)throws UnvalidInput{
 		String stry=null;
 		String strx=null;
-		/*TODO method traduction des lettre + chiffre en x et y*/
+		int x,y;
+		String coorUp = string.toUpperCase().trim();
+		strx= coorUp.substring(0,1);
+		if (coorUp.length()==2){
+			stry= coorUp.substring(1,2);
+		}
+		else if (coorUp.length()==3){
+			stry= coorUp.substring(1,3);
+		}
+		else 
+			throw new UnvalidInput("Unvalid input");
+		y = (Integer.parseInt(stry))-1;
+		x = (strx.toCharArray()[0])-65;
+		return new int[] {x,y};
+	}
+	
+	private void attack(Player attackPlayer, Player hittedPlayer){
+		Scanner sc = new Scanner(System.in);
+		int x=0;
+		int y=0;
+		boolean Valid;
+		System.out.println(attackPlayer+" ! Tip the coordonee of your attack ! (Letter and number)");
 		do{
 			String coor = sc.next();
-			String coorUp = coor.toUpperCase().trim();
-			strx= coorUp.substring(0,1);
-			yValid=true;
-			if (coorUp.length()==2){
-				stry= coorUp.substring(1,2);
+			try{
+			x=stringToInt(coor)[0];
+			y=stringToInt(coor)[1];
+			Valid=checkTirValid(x, y, hittedPlayer);
 			}
-			else if (coorUp.length()==3){
-				stry= coorUp.substring(1,3);
+			catch (UnvalidInput e){
+				System.err.println(e.getMessage());
+				Valid=false;
 			}
-			else 
-				yValid=false;
-		}while(!yValid);
-		int y = Integer.parseInt(stry);
-		int x = strx.toCharArray()[0];
-		x=x-65;
-		y=y-1;
+		}while(!Valid);
 		String result;
 		if (hittedPlayer.board.cases[x][y].boat!=null)
 		{
@@ -201,7 +231,7 @@ public class Game
 				{
 					direction = stringToDirection(Dir);
 				}
-				catch (UnvalidDirection e)
+				catch (UnvalidInput e)
 				{
 					System.err.println(e.getMessage());
 					correctDir = false;
