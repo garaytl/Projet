@@ -30,10 +30,16 @@ final class Game
 	 */
 	private final Player player2;
 	
-	/* TODO JAVADOC */
+	/**
+	 * the Scanner for the game's input
+	 */
 	private final Scanner sc;
 	
-	/* TODO JAVADOC */
+	/**
+	 * game's constructor
+	 * @param pseudo1 the first player's pseudo
+	 * @param pseudo2 the second player's pseudo
+	 */
 	public Game(String pseudo1, String pseudo2)
 	{
 		this.player1 = new Player(pseudo1);
@@ -41,7 +47,9 @@ final class Game
 		this.sc = new Scanner(System.in);
 	}
 	
-	/* TODO JAVADOC */
+	/**
+	 * a method to start the game and play
+	 */
 	public void start()
 	{
 		Boat aircraftCarrier1 = new AircraftCarrier();
@@ -86,7 +94,11 @@ final class Game
 
 	}
 
-	/* TODO JAVADOC */
+	/**
+	 * a method to display the attacking player's board and the attacked player's board
+	 * @param attackPlayer the attacking player
+	 * @param hittedPlayer the attacked player
+	 */
 	private void display(Player attackPlayer, Player hittedPlayer)
 	{
 		clearConsole();
@@ -94,7 +106,9 @@ final class Game
 		System.out.println(hittedPlayer.board.toLimitedString());
 	}
 	
-	/* TODO JAVADOC */
+	/**
+	 * a method to clear the console
+	 */
 	private static void clearConsole()
 	{
 		try
@@ -114,7 +128,12 @@ final class Game
 		}
 	}
 	
-	/* TODO JAVADOC */
+	/**
+	 * a method which convert a string like "left", "right", "up" or "down" to a direction
+	 * @param dir the string to convert
+	 * @return dir convert to a direction
+	 * @throws UnvalidInput if the input isn't a correct direction
+	 */
 	private Direction stringToDirection(String dir) throws UnvalidInput
 	{
 		Direction direction;
@@ -140,7 +159,13 @@ final class Game
 		return direction;
 	}
 
-	/* TODO JAVADOC */
+	/**
+	 * check if the attacked player's case at x , y wasn't already hit
+	 * @param x
+	 * @param y
+	 * @param hittedPlayer the attacked player
+	 * @return true if the case wasn't already hit and false if the case was already hit
+	 */
 	private boolean checkTirValid(int x, int y, Player hittedPlayer)
 	{
 		try
@@ -158,7 +183,12 @@ final class Game
 		return !hittedPlayer.board.getCase(x,y).hitted();
 	}
 	
-	/* TODO JAVADOC */
+	/**
+	 * convert a "typical battelship's call" like A1 to an x and an y
+	 * @param string a "typical battelship's call" like A1
+	 * @return an x and an y
+	 * @throws UnvalidInput if the string wasn't a valid "typical battelship's call"
+	 */
 	private int[] stringToInt(String string) throws UnvalidInput
 	{
 		String stry = null;
@@ -181,13 +211,17 @@ final class Game
 		return new int[] { x, y };
 	}
 	
-	/* TODO JAVADOC */
+	/**
+	 * a method to attack the other player
+	 * @param attackPlayer the attacking player
+	 * @param hittedPlayer the attacked player
+	 */
 	private void attack(Player attackPlayer, Player hittedPlayer)
 	{
 		
 		int x = 0, y = 0;
 		boolean Valid;
-		System.out.println(attackPlayer+ " ! Tip the coordonee of your attack ! (Letter and number)");
+		System.out.println(attackPlayer+ " ! Tip the coordinate of your attack ! (Letter and number)");
 		do
 		{
 			String coor = sc.next();
@@ -224,7 +258,12 @@ final class Game
 		System.out.println(result);
 	}
 
-	/* TODO JAVADOC */
+	/**
+	 * a method to place a boat on a player's board
+	 * the method will ask witch coordinate you want and check if what you tip is valid
+	 * @param boat the boat you want to place
+	 * @param player the owner of the boat
+	 */
 	private void askBoat(Boat boat, Player player)
 	{
 		boolean correctPlace = true;
