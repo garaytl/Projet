@@ -1,4 +1,4 @@
-package fr.iutvalence.blancarayt.bataillenavale;
+package fr.iutvalence.blancarayt.bataillenavale.model.ships;
 
 /**
 * Battleship's aircraft carrier (extend of boat's class).
@@ -7,7 +7,7 @@ package fr.iutvalence.blancarayt.bataillenavale;
 * @version 2.0
 */
 
-public class AircraftCarrier extends Boat {
+public final class AircraftCarrier extends Boat {
     /**
      * Size of an aircraft carrier.
      */
@@ -19,7 +19,9 @@ public class AircraftCarrier extends Boat {
     public AircraftCarrier() {
         super(SIZE);
     }
+    
+    /* TODO JAVADOC */
     public String toString(){
-		return ("AircraftCarrier (" +SIZE+ " case)");
+		return ("AircraftCarrier (" + SIZE + " case)");
     }
 }

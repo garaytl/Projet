@@ -1,4 +1,5 @@
-package fr.iutvalence.blancarayt.bataillenavale;
+package fr.iutvalence.blancarayt.bataillenavale.model.ships;
+
 
 /**
 * Battleship's submarine (extend of boat's class).
@@ -7,7 +8,7 @@ package fr.iutvalence.blancarayt.bataillenavale;
 * @version 2.0
 */
 
-public class Submarine extends Boat {
+public final class Submarine extends Boat {
     /**
      * Size of a submarine.
      */
@@ -19,6 +20,8 @@ public class Submarine extends Boat {
     public Submarine() {
         super(SIZE);
     }
+    
+    /* TODO JAVADOC */
     public String toString(){
 		return ("Submarine (" +SIZE+ " case)");
     }

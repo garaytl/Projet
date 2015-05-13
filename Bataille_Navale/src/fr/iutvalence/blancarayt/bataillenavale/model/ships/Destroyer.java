@@ -1,4 +1,5 @@
-package fr.iutvalence.blancarayt.bataillenavale;
+package fr.iutvalence.blancarayt.bataillenavale.model.ships;
+
 
 /**
 * Battleship's destroyer (extend of boat's class).
@@ -7,7 +8,7 @@ package fr.iutvalence.blancarayt.bataillenavale;
 * @version 2.0
 */
 
-public class Destroyer extends Boat {
+public final class Destroyer extends Boat {
     /**
      * Size of a battle cruiser.
      */
@@ -20,6 +21,7 @@ public class Destroyer extends Boat {
         super(SIZE);
     }
 
+    /* TODO JAVADOC */
     public String toString(){
 		return ("Destroyer (" +SIZE+ " case)");
     }

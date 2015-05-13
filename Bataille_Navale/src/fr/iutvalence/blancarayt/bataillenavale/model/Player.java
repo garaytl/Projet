@@ -1,4 +1,6 @@
-package fr.iutvalence.blancarayt.bataillenavale;
+package fr.iutvalence.blancarayt.bataillenavale.model;
+
+import fr.iutvalence.blancarayt.bataillenavale.model.ships.Boat;
 
 /**
  * The player.
@@ -6,15 +8,15 @@ package fr.iutvalence.blancarayt.bataillenavale;
  * @author léasilé
  * @version 2.0
  */
-public class Player {
+public final class Player {
     /** Player's pseudo. */
-    private final String pseudo;
+	public final String pseudo;
     /** The player's board with his boats.*/
-    protected Board board;
+    public Board board;
     /** The player's boats alive*/
-    private int pv;
+    public int hp;
     
-    /**player's constructor initialyse with 0 winned games
+    /**player's constructor initialyse with 0 hp
      * 
      * @param a selected pseudo
      * 
@@ -22,19 +24,27 @@ public class Player {
     public Player(String pseudo) {
         this.pseudo = pseudo;
         this.board = new Board();
-        this.pv=0;
+        this.hp=0;
     }
     
+    /* TODO JAVADOC */
+    public boolean isAlive() {
+    	return this.hp > 0;
+    }
+    
+    /* TODO JAVADOC */
     public int getPv(){
-    	return this.pv;
+    	return this.hp;
     }
     
+    /* TODO JAVADOC */
     public void addPv(){
-    	this.pv++;
+    	this.hp++;
     }
     
+    /* TODO JAVADOC */
     public void subPv(){
-    	this.pv--;
+    	this.hp--;
     }
 
     /** Method to get the player's pseudo. */
@@ -43,10 +53,12 @@ public class Player {
 		return pseudo;
 	}
     
+    /* TODO JAVADOC */
     public void addBoat(int x, int y, Direction direction, Boat boat) throws OutOfTheBoard, Occupated {
     	board.placeBoat(x, y, direction, boat);
     }
-    // TODO Afficher l'état du joueur et éventuellement sur deux méthodes selon le choix pour l'affichage de la board de l'autre joueur.
+    
+    /* TODO JAVADOC */
     public String toString() {
     	return (pseudo);
     }
