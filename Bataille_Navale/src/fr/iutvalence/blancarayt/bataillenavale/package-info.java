@@ -1,7 +1,8 @@
 package fr.iutvalence.blancarayt.bataillenavale;
+
 /**
  * Main battleship's Package
  * 
- * @author garaytl
- *
+ * @author léasilé
+ * @version 2.0
  */

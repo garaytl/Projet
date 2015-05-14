@@ -1,7 +1,7 @@
 package fr.iutvalence.blancarayt.bataillenavale.model;
 
 /**
- * boat's direction (to place it on the board).
+ * Boat's direction (to place it on the board).
  *
  * @author léasilé
  * @version 2.0

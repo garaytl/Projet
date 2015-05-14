@@ -13,12 +13,14 @@ public final class UnvalidInput extends Exception
 	 * serial version UID
 	 */
 	private static final long serialVersionUID = 1L;
-    
+
 	/**
 	 * UnvalidInput constructor
+	 * 
 	 * @param message
 	 */
-	public UnvalidInput(String message) {
-    	super(message);
-    }
+	public UnvalidInput(String message)
+	{
+		super(message);
+	}
 }

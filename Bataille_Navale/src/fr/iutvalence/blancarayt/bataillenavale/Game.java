@@ -3,7 +3,7 @@ package fr.iutvalence.blancarayt.bataillenavale;
 import java.util.Scanner;
 
 import fr.iutvalence.blancarayt.bataillenavale.model.Direction;
-import fr.iutvalence.blancarayt.bataillenavale.model.Occupated;
+import fr.iutvalence.blancarayt.bataillenavale.model.Occupied;
 import fr.iutvalence.blancarayt.bataillenavale.model.OutOfTheBoard;
 import fr.iutvalence.blancarayt.bataillenavale.model.Player;
 import fr.iutvalence.blancarayt.bataillenavale.model.ships.AircraftCarrier;
@@ -29,16 +29,19 @@ final class Game
 	 * Player 2.
 	 */
 	private final Player player2;
-	
+
 	/**
 	 * the Scanner for the game's input
 	 */
 	private final Scanner sc;
-	
+
 	/**
 	 * game's constructor
-	 * @param pseudo1 the first player's pseudo
-	 * @param pseudo2 the second player's pseudo
+	 * 
+	 * @param pseudo1
+	 *            the first player's pseudo
+	 * @param pseudo2
+	 *            the second player's pseudo
 	 */
 	public Game(String pseudo1, String pseudo2)
 	{
@@ -46,66 +49,73 @@ final class Game
 		this.player2 = new Player(pseudo2);
 		this.sc = new Scanner(System.in);
 	}
-	
+
 	/**
 	 * a method to start the game and play
 	 */
 	public void start()
 	{
+		System.out.println(this.player1.board.toString());
 		Boat aircraftCarrier1 = new AircraftCarrier();
-		askBoat(aircraftCarrier1, player1);
+		askBoat(aircraftCarrier1, this.player1);
 		Boat submarine1 = new Submarine();
-		askBoat(submarine1, player1);
+		askBoat(submarine1, this.player1);
 		Boat submarine2 = new Submarine();
-		askBoat(submarine2, player1);
+		askBoat(submarine2, this.player1);
 		Boat battleCruiser1 = new BattleCruiser();
-		askBoat(battleCruiser1, player1);
+		askBoat(battleCruiser1, this.player1);
 		Boat destroyer1 = new Destroyer();
-		askBoat(destroyer1, player1);
+		askBoat(destroyer1, this.player1);
 		clearConsole();
+		System.out.println(this.player2.board.toString());
 		Boat aircraftCarrier2 = new AircraftCarrier();
-		askBoat(aircraftCarrier2, player2);
+		askBoat(aircraftCarrier2, this.player2);
 		Boat submarine3 = new Submarine();
-		askBoat(submarine3, player2);
+		askBoat(submarine3, this.player2);
 		Boat submarine4 = new Submarine();
-		askBoat(submarine4, player2);
+		askBoat(submarine4, this.player2);
 		Boat battleCruiser2 = new BattleCruiser();
-		askBoat(battleCruiser2, player2);
+		askBoat(battleCruiser2, this.player2);
 		Boat destroyer3 = new Destroyer();
-		askBoat(destroyer3, player2);
+		askBoat(destroyer3, this.player2);
 		clearConsole();
-		while (player1.isAlive() && player2.isAlive())
+		while (this.player1.isAlive() && this.player2.isAlive())
 		{
-			display(player1, player2);
-			attack(player1, player2);
-			display(player2, player1);
-			attack(player2, player1);
+			display(this.player1, this.player2);
+			attack(this.player1, this.player2);
+			display(this.player2, this.player1);
+			attack(this.player2, this.player1);
 		}
 		System.out.println("End of the game :");
-		if (player1.isAlive() == true)
+		if (this.player1.isAlive() == true)
 		{
-			System.out.print(player1);
-		} else
+			System.out.print(this.player1);
+		}
+		else
 		{
-			System.out.print(player2);
+			System.out.print(this.player2);
 		}
 		System.out.print(" is the winner !");
-		sc.close();
+		this.sc.close();
 
 	}
 
 	/**
-	 * a method to display the attacking player's board and the attacked player's board
-	 * @param attackPlayer the attacking player
-	 * @param hittedPlayer the attacked player
+	 * a method to display the attacking player's board and the attacked
+	 * player's board
+	 * 
+	 * @param attackPlayer
+	 *            the attacking player
+	 * @param hittedPlayer
+	 *            the attacked player
 	 */
-	private void display(Player attackPlayer, Player hittedPlayer)
+	private static void display(Player attackPlayer, Player hittedPlayer)
 	{
 		clearConsole();
 		System.out.println(attackPlayer.board.toString());
 		System.out.println(hittedPlayer.board.toLimitedString());
 	}
-	
+
 	/**
 	 * a method to clear the console
 	 */
@@ -117,24 +127,30 @@ final class Game
 
 			if (os.contains("Windows"))
 			{
-				Runtime.getRuntime().exec("clear");
-			} else
+				Runtime.getRuntime().exec("clr");
+			}
+			else
 			{
 				Runtime.getRuntime().exec("clear");
 			}
-		} catch (final Exception e)
+		}
+		catch (final Exception e)
 		{
-			// Handle any exceptions.
+			System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}
 	}
-	
+
 	/**
-	 * a method which convert a string like "left", "right", "up" or "down" to a direction
-	 * @param dir the string to convert
-	 * @return dir convert to a direction
-	 * @throws UnvalidInput if the input isn't a correct direction
+	 * a method which convert a string like "left", "right", "up" or "down" to a
+	 * direction
+	 * 
+	 * @param dir
+	 *            the string to convert
+	 * @return the string dir convert to a direction
+	 * @throws UnvalidInput
+	 *             if the input isn't a correct direction
 	 */
-	private Direction stringToDirection(String dir) throws UnvalidInput
+	private static Direction stringToDirection(String dir) throws UnvalidInput
 	{
 		Direction direction;
 		String dirUp = dir.toUpperCase().trim();
@@ -153,43 +169,52 @@ final class Game
 			direction = Direction.DOWN;
 			break;
 		default:
-			throw new UnvalidInput("The direction " + dir
-					+ " is invalid please type LEFT, RIGHT, UP or DOWN");
+			throw new UnvalidInput("The direction " + dir + " is invalid please type LEFT, RIGHT, UP or DOWN");
 		}
 		return direction;
 	}
 
 	/**
 	 * check if the attacked player's case at x , y wasn't already hit
+	 * 
 	 * @param x
 	 * @param y
-	 * @param hittedPlayer the attacked player
-	 * @return true if the case wasn't already hit and false if the case was already hit
+	 * @param hittedPlayer
+	 *            the attacked player
+	 * @return true if the case wasn't already hit and false if the case was
+	 *         already hit
 	 */
-	private boolean checkTirValid(int x, int y, Player hittedPlayer)
+	private static boolean checkTirValid(int x, int y, Player hittedPlayer)
 	{
 		try
 		{
 			hittedPlayer.board.checkCoordinate(x, y);
-		} catch (Occupated e)
+		}
+		catch (Occupied e)
 		{
-		} catch (OutOfTheBoard e)
+			// we don't have to know (has a attacking player) if the case is
+			// empty or occupied when we attack
+		}
+		catch (OutOfTheBoard e)
 		{
 			System.err.println(e.getMessage());
 			return false;
 		}
-		if (hittedPlayer.board.getCase(x,y).hitted() == true)
+		if (hittedPlayer.board.getCase(x, y).hitted() == true)
 			System.out.println("Case already attacked");
-		return !hittedPlayer.board.getCase(x,y).hitted();
+		return !hittedPlayer.board.getCase(x, y).hitted();
 	}
-	
+
 	/**
 	 * convert a "typical battelship's call" like A1 to an x and an y
-	 * @param string a "typical battelship's call" like A1
+	 * 
+	 * @param string
+	 *            a "typical battelship's call" like A1
 	 * @return an x and an y
-	 * @throws UnvalidInput if the string wasn't a valid "typical battelship's call"
+	 * @throws UnvalidInput
+	 *             if the string wasn't a valid "typical battelship's call"
 	 */
-	private int[] stringToInt(String string) throws UnvalidInput
+	private static int[] stringToInt(String string) throws UnvalidInput
 	{
 		String stry = null;
 		String strx = null;
@@ -200,69 +225,79 @@ final class Game
 		{
 			stry = coorUp.substring(1, 2);
 			y = (stry.toCharArray()[0]) - 49;
-		} else if (coorUp.length() == 3)
+		}
+		else if (coorUp.length() == 3)
 		{
 			stry = coorUp.substring(1, 3);
-			y = ((stry.toCharArray()[0]) - 49) * 10 + (stry.toCharArray()[1])
-					- 49;
-		} else
+			y = ((stry.toCharArray()[0]) - 49) * 10 + (stry.toCharArray()[1]) - 49;
+		}
+		else
 			throw new UnvalidInput("Unvalid input");
 		x = (strx.toCharArray()[0]) - 65;
 		return new int[] { x, y };
 	}
-	
+
 	/**
 	 * a method to attack the other player
-	 * @param attackPlayer the attacking player
-	 * @param hittedPlayer the attacked player
+	 * 
+	 * @param attackPlayer
+	 *            the attacking player
+	 * @param hittedPlayer
+	 *            the attacked player
 	 */
 	private void attack(Player attackPlayer, Player hittedPlayer)
 	{
-		
+
 		int x = 0, y = 0;
 		boolean Valid;
-		System.out.println(attackPlayer+ " ! Tip the coordinate of your attack ! (Letter and number)");
+		System.out.println(attackPlayer + " ! Tip the coordinate of your attack ! (Letter and number)");
 		do
 		{
-			String coor = sc.next();
+			String coor = this.sc.next();
 			try
 			{
 				x = stringToInt(coor)[0];
 				y = stringToInt(coor)[1];
 				Valid = checkTirValid(x, y, hittedPlayer);
-			} catch (UnvalidInput e)
+			}
+			catch (UnvalidInput e)
 			{
 				System.err.println(e.getMessage());
 				Valid = false;
 			}
 		} while (!Valid);
 		String result;
-		if (hittedPlayer.board.getCase(x,y).getBoat() != null)
+		if (hittedPlayer.board.getCase(x, y).getBoat() != null)
 		{
-			hittedPlayer.board.getCase(x,y).getBoat().hitted();
-			if (hittedPlayer.board.getCase(x,y).getBoat().getCondition() == false)
+			hittedPlayer.board.getCase(x, y).getBoat().hitted();
+			if (hittedPlayer.board.getCase(x, y).getBoat().getCondition() == false)
 			{
-				result = "Coulé ! " + (hittedPlayer.getPv() - 1) + " boat left";
+				result = "Sink ! " + (hittedPlayer.getPv() - 1) + " boat left";
 				hittedPlayer.subPv();
-			} else
+			}
+			else
 			{
-				result = "Touché !";
+				result = "Hit !";
 			}
 
-		} else
-		{
-			result = "A l'eau..";
 		}
-		hittedPlayer.board.getCase(x,y).hit();
+		else
+		{
+			result = "Miss..";
+		}
+		hittedPlayer.board.getCase(x, y).hit();
 		System.out.println(hittedPlayer.board.toLimitedString());
 		System.out.println(result);
 	}
 
 	/**
-	 * a method to place a boat on a player's board
-	 * the method will ask witch coordinate you want and check if what you tip is valid
-	 * @param boat the boat you want to place
-	 * @param player the owner of the boat
+	 * a method to place a boat on a player's board the method will ask witch
+	 * coordinate you want and check if what you tip is valid
+	 * 
+	 * @param boat
+	 *            the boat you want to place
+	 * @param player
+	 *            the owner of the boat
 	 */
 	private void askBoat(Boat boat, Player player)
 	{
@@ -270,20 +305,19 @@ final class Game
 		do
 		{
 			correctPlace = true;
-			System.out.println("tip the depart position of "
-					+ player.getPseudo() + "'s " + boat
-					+ " : (letter + number)");
+			System.out.println("tip the depart position of " + player.getPseudo() + "'s " + boat + " : (letter + number)");
 			int x = 0, y = 0;
 			boolean Valid = true;
 			do
 			{
-				String position = sc.next();
+				String position = this.sc.next();
 				try
 				{
 					y = stringToInt(position)[0];
 					x = stringToInt(position)[1];
 					Valid = true;
-				} catch (UnvalidInput e)
+				}
+				catch (UnvalidInput e)
 				{
 					System.err.println(e.getMessage());
 					Valid = false;
@@ -294,13 +328,13 @@ final class Game
 			do
 			{
 				correctDir = true;
-				System.out.println("tip the direction of " + player.getPseudo()
-						+ "'s " + boat + " :");
-				String Dir = sc.next();
+				System.out.println("tip the direction of " + player.getPseudo() + "'s " + boat + " :");
+				String Dir = this.sc.next();
 				try
 				{
 					direction = stringToDirection(Dir);
-				} catch (UnvalidInput e)
+				}
+				catch (UnvalidInput e)
 				{
 					System.err.println(e.getMessage());
 					correctDir = false;
@@ -309,14 +343,15 @@ final class Game
 			try
 			{
 				player.addBoat(x, y, direction, boat);
-			} catch (OutOfTheBoard | Occupated f)
+			}
+			catch (OutOfTheBoard | Occupied f)
 			{
 				System.err.println(f.getMessage());
 				correctPlace = false;
 			}
 		} while (!correctPlace);
 		System.out.println(player.board.toString());
-		player.addPv();
-		
+		player.addHp();
+
 	}
 }

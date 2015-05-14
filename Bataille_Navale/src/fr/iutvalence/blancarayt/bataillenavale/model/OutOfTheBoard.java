@@ -13,9 +13,10 @@ public final class OutOfTheBoard extends Exception
 	 * serial version UID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * OutOfTheBoard constructor
+	 * 
 	 * @param message
 	 */
 	public OutOfTheBoard(String message)

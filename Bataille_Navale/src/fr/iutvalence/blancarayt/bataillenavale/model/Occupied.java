@@ -7,7 +7,7 @@ package fr.iutvalence.blancarayt.bataillenavale.model;
  * @version 2.0
  */
 
-public final class Occupated extends Exception
+public final class Occupied extends Exception
 {
 	/**
 	 * serial version UID
@@ -15,10 +15,11 @@ public final class Occupated extends Exception
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Occupated constructor
+	 * Occupied constructor
+	 * 
 	 * @param message
 	 */
-	public Occupated(String message)
+	public Occupied(String message)
 	{
 		super(message);
 	}

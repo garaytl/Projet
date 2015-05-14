@@ -1,7 +1,8 @@
 package fr.iutvalence.blancarayt.bataillenavale.model.ships;
+
 /**
- *battleship's boats Package
+ * battleship's boats Package
  * 
- * @author garaytl
- *
+ * @author léasilé
+ * @version 2.0
  */

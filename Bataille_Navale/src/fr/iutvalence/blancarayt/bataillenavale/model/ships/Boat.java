@@ -16,15 +16,25 @@ public abstract class Boat
 
 	/** Number of heal point. */
 	private int hp;
-	
-	/* TODO JAVADOC */
-	public final boolean getCondition(){
-		return condition;
+
+	/**
+	 * a method to show the condition of the boat
+	 * 
+	 * @return true if alive and false if dead
+	 */
+	public final boolean getCondition()
+	{
+		return this.condition;
 	}
-	
-	/* TODO JAVADOC */
-	public final int getSize(){
-		return size;
+
+	/**
+	 * a method to show the size of the boat
+	 * 
+	 * @return the size if the boat
+	 */
+	public final int getSize()
+	{
+		return this.size;
 	}
 
 	/**

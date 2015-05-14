@@ -2,19 +2,21 @@ package fr.iutvalence.blancarayt.bataillenavale;
 
 import java.util.Scanner;
 
-import fr.iutvalence.blancarayt.bataillenavale.model.Occupated;
-import fr.iutvalence.blancarayt.bataillenavale.model.OutOfTheBoard;
-
 /**
  * Battleship's main class
  * 
- * @author garaytl
+ * @author léasilé
+ * @version 2.0
  *
  */
 public final class Battleship
-{	
-	/* TODO JAVADOC */
-	public static void main(String[] args) throws UnvalidInput, OutOfTheBoard,Occupated
+{
+	/**
+	 * the main method of the game
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Type the first player's pseudo");

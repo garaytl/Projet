@@ -22,7 +22,10 @@ public final class BattleCruiser extends Boat
 		super(SIZE);
 	}
 
-	/* TODO JAVADOC */
+	/**
+	 * over ride of "to string", return the type of the boat
+	 */
+	@Override
 	public String toString()
 	{
 		return ("BattleCruiser (" + SIZE + " case)");
