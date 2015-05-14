@@ -1,4 +1,4 @@
-package fr.iutvalence.blancarayt.bataillenavale;
+package fr.iutvalence.blancarayt.battleship;
 
 /**
  * Main battleship's Package

@@ -1,4 +1,4 @@
-package fr.iutvalence.blancarayt.bataillenavale.model.ships;
+package fr.iutvalence.blancarayt.battleship.model.ships;
 
 /**
  * Battleship's Battle cruiser (extend of boat's class).

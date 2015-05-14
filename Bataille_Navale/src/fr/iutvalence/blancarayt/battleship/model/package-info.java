@@ -1,4 +1,4 @@
-package fr.iutvalence.blancarayt.bataillenavale.model;
+package fr.iutvalence.blancarayt.battleship.model;
 
 /**
  * battleship's model Package

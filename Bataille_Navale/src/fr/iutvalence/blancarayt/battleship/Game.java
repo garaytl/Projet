@@ -1,16 +1,16 @@
-package fr.iutvalence.blancarayt.bataillenavale;
+package fr.iutvalence.blancarayt.battleship;
 
 import java.util.Scanner;
 
-import fr.iutvalence.blancarayt.bataillenavale.model.Direction;
-import fr.iutvalence.blancarayt.bataillenavale.model.Occupied;
-import fr.iutvalence.blancarayt.bataillenavale.model.OutOfTheBoard;
-import fr.iutvalence.blancarayt.bataillenavale.model.Player;
-import fr.iutvalence.blancarayt.bataillenavale.model.ships.AircraftCarrier;
-import fr.iutvalence.blancarayt.bataillenavale.model.ships.BattleCruiser;
-import fr.iutvalence.blancarayt.bataillenavale.model.ships.Boat;
-import fr.iutvalence.blancarayt.bataillenavale.model.ships.Destroyer;
-import fr.iutvalence.blancarayt.bataillenavale.model.ships.Submarine;
+import fr.iutvalence.blancarayt.battleship.model.Direction;
+import fr.iutvalence.blancarayt.battleship.model.Occupied;
+import fr.iutvalence.blancarayt.battleship.model.OutOfTheBoard;
+import fr.iutvalence.blancarayt.battleship.model.Player;
+import fr.iutvalence.blancarayt.battleship.model.ships.AircraftCarrier;
+import fr.iutvalence.blancarayt.battleship.model.ships.BattleCruiser;
+import fr.iutvalence.blancarayt.battleship.model.ships.Boat;
+import fr.iutvalence.blancarayt.battleship.model.ships.Destroyer;
+import fr.iutvalence.blancarayt.battleship.model.ships.Submarine;
 
 /**
  * Battleship's game.
@@ -55,7 +55,7 @@ final class Game
 	 */
 	public void start()
 	{
-		System.out.println(this.player1.board.toString());
+		System.out.println("\n\n"+this.player1.board.toString());
 		Boat aircraftCarrier1 = new AircraftCarrier();
 		askBoat(aircraftCarrier1, this.player1);
 		Boat submarine1 = new Submarine();

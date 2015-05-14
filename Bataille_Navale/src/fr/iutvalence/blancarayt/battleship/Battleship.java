@@ -1,4 +1,4 @@
-package fr.iutvalence.blancarayt.bataillenavale;
+package fr.iutvalence.blancarayt.battleship;
 
 import java.util.Scanner;
 

@@ -1,6 +1,6 @@
-package fr.iutvalence.blancarayt.bataillenavale.model;
+package fr.iutvalence.blancarayt.battleship.model;
 
-import fr.iutvalence.blancarayt.bataillenavale.model.ships.Boat;
+import fr.iutvalence.blancarayt.battleship.model.ships.Boat;
 
 /**
  * The player.
