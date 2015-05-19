@@ -14,11 +14,11 @@ public final class Player
 	public final String pseudo;
 	/** The player's board with his boats. */
 	public Board board;
-	/** The player's boats alive */
+	/** The player's boats alive. */
 	public int hp;
 
 	/**
-	 * player's constructor initialize with 0 hp
+	 * Player's constructor initialize with 0 hp.
 	 * 
 	 * @param pseudo
 	 */
@@ -30,7 +30,7 @@ public final class Player
 	}
 
 	/**
-	 * a method to know if the player is alive or not
+	 * A method to know if the player is alive or not.
 	 * 
 	 * @return true if the player is alive and false if he is dead
 	 */
@@ -40,7 +40,7 @@ public final class Player
 	}
 
 	/**
-	 * a method to see the player's hp
+	 * A method to see the player's hp.
 	 * 
 	 * @return the player's hp
 	 */
@@ -50,7 +50,7 @@ public final class Player
 	}
 
 	/**
-	 * a method to add an hp to the player
+	 * A method to add an hp to the player.
 	 */
 	public void addHp()
 	{
@@ -58,7 +58,7 @@ public final class Player
 	}
 
 	/**
-	 * a method to subtract an hp to the player
+	 * A method to subtract an hp to the player.
 	 */
 	public void subPv()
 	{
@@ -76,7 +76,7 @@ public final class Player
 	}
 
 	/**
-	 * a method to place a Boat
+	 * A method to place a Boat.
 	 * 
 	 * @param x
 	 * @param y
@@ -91,7 +91,7 @@ public final class Player
 	}
 
 	/**
-	 * over ride of "to string", return the player's pseudo
+	 * Over ride of "to string", return the player's pseudo.
 	 */
 	@Override
 	public String toString()

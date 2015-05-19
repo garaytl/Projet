@@ -15,12 +15,12 @@ public final class Case
 	private Boat boat;
 
 	/**
-	 * boolean : if the box was hit or not
+	 * Boolean : if the box was hit or not.
 	 */
 	private boolean hitted;
 
 	/**
-	 * Box's constructor initialize without any boat and safe
+	 * Box's constructor initialize without any boat and safe.
 	 * 
 	 */
 	public Case()
@@ -30,7 +30,7 @@ public final class Case
 	}
 
 	/**
-	 * a method to show which boat if on the case
+	 * A method to show which boat if on the case.
 	 * 
 	 * @return the reference of the boat
 	 */
@@ -40,7 +40,7 @@ public final class Case
 	}
 
 	/**
-	 * a method to place a boat on this case
+	 * A method to place a boat on this case.
 	 * 
 	 * @param boat
 	 */
@@ -60,7 +60,7 @@ public final class Case
 	}
 
 	/**
-	 * a method to know if the case was hit or not
+	 * A method to know if the case was hit or not.
 	 * 
 	 * @return true if the case was hit and false if not
 	 */
@@ -70,7 +70,7 @@ public final class Case
 	}
 
 	/**
-	 * a method to hit the case
+	 * A method to hit the case.
 	 */
 	public void hit()
 	{
@@ -78,7 +78,7 @@ public final class Case
 	}
 
 	/**
-	 * return a text representation of the box represented with "[O]" if the box
+	 * Return a text representation of the box represented with "[O]" if the box
 	 * is occupied and safe, [T] if the box is occupied and was hit, [C] if the
 	 * boat is dead, [X] if the box is empty and hit and [ ] if the box is empty
 	 * and safe.

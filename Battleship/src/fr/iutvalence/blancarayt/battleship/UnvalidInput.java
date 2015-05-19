@@ -1,7 +1,7 @@
 package fr.iutvalence.blancarayt.battleship;
 
 /**
- * Battleship's exception
+ * Battleship's exception.
  *
  * @author léasilé
  * @version 2.0
@@ -10,12 +10,12 @@ package fr.iutvalence.blancarayt.battleship;
 public final class UnvalidInput extends Exception
 {
 	/**
-	 * serial version UID
+	 * Serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * UnvalidInput constructor
+	 * UnvalidInput constructor.
 	 * 
 	 * @param message
 	 */

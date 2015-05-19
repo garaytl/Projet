@@ -31,12 +31,12 @@ final class Game
 	private final Player player2;
 
 	/**
-	 * the Scanner for the game's input
+	 * the Scanner for the game's input.
 	 */
 	private final Scanner sc;
 
 	/**
-	 * game's constructor
+	 * Game's constructor.
 	 * 
 	 * @param pseudo1
 	 *            the first player's pseudo
@@ -51,11 +51,11 @@ final class Game
 	}
 
 	/**
-	 * a method to start the game and play
+	 * A method to start the game and play.
 	 */
 	public void start()
 	{
-		System.out.println("\n\n"+this.player1.board.toString());
+		System.out.println("\n\n" + this.player1.board.toString());
 		Boat aircraftCarrier1 = new AircraftCarrier();
 		askBoat(aircraftCarrier1, this.player1);
 		Boat submarine1 = new Submarine();
@@ -90,8 +90,7 @@ final class Game
 		if (this.player1.isAlive() == true)
 		{
 			System.out.print(this.player1);
-		}
-		else
+		} else
 		{
 			System.out.print(this.player2);
 		}
@@ -101,8 +100,8 @@ final class Game
 	}
 
 	/**
-	 * a method to display the attacking player's board and the attacked
-	 * player's board
+	 * A method to display the attacking player's board and the attacked
+	 * player's board.
 	 * 
 	 * @param attackPlayer
 	 *            the attacking player
@@ -117,7 +116,7 @@ final class Game
 	}
 
 	/**
-	 * a method to clear the console
+	 * A method to clear the console.
 	 */
 	private static void clearConsole()
 	{
@@ -128,21 +127,21 @@ final class Game
 			if (os.contains("Windows"))
 			{
 				Runtime.getRuntime().exec("clr");
-			}
-			else
+			} else
 			{
 				Runtime.getRuntime().exec("clear");
 			}
 		}
 		catch (final Exception e)
 		{
-			System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+			System.out
+					.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}
 	}
 
 	/**
-	 * a method which convert a string like "left", "right", "up" or "down" to a
-	 * direction
+	 * A method which convert a string like "left", "right", "up" or "down" to a
+	 * direction.
 	 * 
 	 * @param dir
 	 *            the string to convert
@@ -169,13 +168,14 @@ final class Game
 			direction = Direction.DOWN;
 			break;
 		default:
-			throw new UnvalidInput("The direction " + dir + " is invalid please type LEFT, RIGHT, UP or DOWN");
+			throw new UnvalidInput("The direction " + dir
+					+ " is invalid please type LEFT, RIGHT, UP or DOWN");
 		}
 		return direction;
 	}
 
 	/**
-	 * check if the attacked player's case at x , y wasn't already hit
+	 * Check if the attacked player's case at x , y wasn't already hit.
 	 * 
 	 * @param x
 	 * @param y
@@ -206,7 +206,7 @@ final class Game
 	}
 
 	/**
-	 * convert a "typical battelship's call" like A1 to an x and an y
+	 * Convert a "typical battelship's call" like A1 to an x and an y.
 	 * 
 	 * @param string
 	 *            a "typical battelship's call" like A1
@@ -229,7 +229,8 @@ final class Game
 		else if (coorUp.length() == 3)
 		{
 			stry = coorUp.substring(1, 3);
-			y = ((stry.toCharArray()[0]) - 49) * 10 + (stry.toCharArray()[1]) - 49;
+			y = ((stry.toCharArray()[0]) - 49) * 10 + (stry.toCharArray()[1])
+					- 49;
 		}
 		else
 			throw new UnvalidInput("Unvalid input");
@@ -238,7 +239,7 @@ final class Game
 	}
 
 	/**
-	 * a method to attack the other player
+	 * A method to attack the other player.
 	 * 
 	 * @param attackPlayer
 	 *            the attacking player
@@ -250,7 +251,8 @@ final class Game
 
 		int x = 0, y = 0;
 		boolean Valid;
-		System.out.println(attackPlayer + " ! Tip the coordinate of your attack ! (Letter and number)");
+		System.out.println(attackPlayer
+				+ " ! Tip the coordinate of your attack ! (Letter and number)");
 		do
 		{
 			String coor = this.sc.next();
@@ -291,8 +293,8 @@ final class Game
 	}
 
 	/**
-	 * a method to place a boat on a player's board the method will ask witch
-	 * coordinate you want and check if what you tip is valid
+	 * A method to place a boat on a player's board the method will ask witch
+	 * coordinate you want and check if what you tip is valid.
 	 * 
 	 * @param boat
 	 *            the boat you want to place
@@ -305,7 +307,9 @@ final class Game
 		do
 		{
 			correctPlace = true;
-			System.out.println("tip the depart position of " + player.getPseudo() + "'s " + boat + " : (letter + number)");
+			System.out.println("tip the depart position of "
+					+ player.getPseudo() + "'s " + boat
+					+ " : (letter + number)");
 			int x = 0, y = 0;
 			boolean Valid = true;
 			do
@@ -328,7 +332,8 @@ final class Game
 			do
 			{
 				correctDir = true;
-				System.out.println("tip the direction of " + player.getPseudo() + "'s " + boat + " :");
+				System.out.println("tip the direction of " + player.getPseudo()
+						+ "'s " + boat + " :");
 				String Dir = this.sc.next();
 				try
 				{

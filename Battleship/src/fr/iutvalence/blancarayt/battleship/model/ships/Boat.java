@@ -18,7 +18,7 @@ public abstract class Boat
 	private int hp;
 
 	/**
-	 * a method to show the condition of the boat
+	 * A method to show the condition of the boat.
 	 * 
 	 * @return true if alive and false if dead
 	 */
@@ -28,7 +28,7 @@ public abstract class Boat
 	}
 
 	/**
-	 * a method to show the size of the boat
+	 * A method to show the size of the boat.
 	 * 
 	 * @return the size if the boat
 	 */

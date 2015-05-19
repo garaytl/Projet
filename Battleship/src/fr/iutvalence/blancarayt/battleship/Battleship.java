@@ -3,7 +3,7 @@ package fr.iutvalence.blancarayt.battleship;
 import java.util.Scanner;
 
 /**
- * Battleship's main class
+ * Battleship's main class.
  * 
  * @author léasilé
  * @version 2.0
@@ -12,7 +12,7 @@ import java.util.Scanner;
 public final class Battleship
 {
 	/**
-	 * the main method of the game
+	 * The main method of the game.
 	 * 
 	 * @param args
 	 */

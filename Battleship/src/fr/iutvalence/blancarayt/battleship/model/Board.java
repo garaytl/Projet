@@ -3,7 +3,7 @@ package fr.iutvalence.blancarayt.battleship.model;
 import fr.iutvalence.blancarayt.battleship.model.ships.Boat;
 
 /**
- * Battleship's board
+ * Battleship's board.
  *
  * @author léasilé
  * @version 2.0
@@ -11,14 +11,14 @@ import fr.iutvalence.blancarayt.battleship.model.ships.Boat;
 
 public final class Board
 {
-	/** The number of line */
+	/** The number of line. */
 	private static final int NUMBER_OF_LINE = 10;
-	/** The number of column */
+	/** The number of column. */
 	private static final int NUMBER_OF_COLUMN = 10;
-	/** board's boxes */
+	/** Board's boxes. */
 	private final Case[][] cases;
 
-	/** built a new empty board */
+	/** Built a new empty board. */
 	public Board()
 	{
 		this.cases = new Case[NUMBER_OF_LINE][NUMBER_OF_COLUMN];
@@ -33,7 +33,7 @@ public final class Board
 	}
 
 	/**
-	 * a method to show the case[x][y] of the board
+	 * A method to show the case[x][y] of the board.
 	 * 
 	 * @param x
 	 * @param y
@@ -45,7 +45,7 @@ public final class Board
 	}
 
 	/**
-	 * a method to check if the coordinate given are free and in the board
+	 * A method to check if the coordinate given are free and in the board.
 	 * 
 	 * @param x
 	 * @param y
@@ -78,7 +78,7 @@ public final class Board
 	}
 
 	/**
-	 * a method to place a boat on the board
+	 * A method to place a boat on the board.
 	 * 
 	 * @param x
 	 * @param y
@@ -130,8 +130,8 @@ public final class Board
 	}
 
 	/**
-	 * an over ride of "to string" which give a representation of the board
-	 * using the case's one it also add numbers at the left and letters above
+	 * An over ride of "to string" which give a representation of the board
+	 * using the case's one it also add numbers at the left and letters above.
 	 */
 	@Override
 	public String toString()
@@ -166,8 +166,8 @@ public final class Board
 	}
 
 	/**
-	 * a variant of the "to string" method to show the board to the enemy it
-	 * only show what there are on the case he already hit
+	 * A variant of the "to string" method to show the board to the enemy it
+	 * only show what there are on the case he already hit.
 	 * 
 	 * @return a limited board representation
 	 */

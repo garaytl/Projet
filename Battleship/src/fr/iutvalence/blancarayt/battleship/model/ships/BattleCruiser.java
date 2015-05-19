@@ -23,7 +23,7 @@ public final class BattleCruiser extends Boat
 	}
 
 	/**
-	 * over ride of "to string", return the type of the boat
+	 * Over ride of "to string", return the type of the boat and his size.
 	 */
 	@Override
 	public String toString()

@@ -10,12 +10,12 @@ package fr.iutvalence.blancarayt.battleship.model;
 public final class OutOfTheBoard extends Exception
 {
 	/**
-	 * serial version UID
+	 * Serial version UID.
 	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * OutOfTheBoard constructor
+	 * OutOfTheBoard constructor.
 	 * 
 	 * @param message
 	 */

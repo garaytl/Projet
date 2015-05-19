@@ -8,15 +8,15 @@ package fr.iutvalence.blancarayt.battleship.model;
  */
 public enum Direction
 {
-	/** to the left */
+	/** To the left. */
 	LEFT,
 
-	/** to the right */
+	/** To the right. */
 	RIGHT,
 
-	/** up */
+	/** Up. */
 	UP,
 
-	/** down */
+	/** Down. */
 	DOWN
 }
