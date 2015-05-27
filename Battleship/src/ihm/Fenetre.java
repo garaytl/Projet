@@ -17,7 +17,7 @@ public class Fenetre extends JFrame
 	 this.setVisible(true);
 	 this.setTitle("IHM");
 	 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	 this.setSize(800, 1000);
+	 this.setSize(500, 600);
 	 JSplitPane northPanel = new JSplitPane();
 	 JSplitPane globalPanel= new JSplitPane();
 
@@ -45,14 +45,15 @@ public class Fenetre extends JFrame
 	 northPanel.setDividerSize(0);
 	 northPanel.setResizeWeight(0.9);
 	 northPanel.setRightComponent(plateau1);
-	 northPanel.setLeftComponent(new InterfaceJeu());
+	 northPanel.setLeftComponent(new InterfaceDebut());
 	 northPanel.setEnabled(false);
 	 
 	 globalPanel.setOrientation(SwingConstants.HORIZONTAL);
 	 globalPanel.setResizeWeight(0.2);
 	 globalPanel.setDividerSize(0);
 	 globalPanel.setBottomComponent(plateau2);
-	 globalPanel.setTopComponent(northPanel);
+	 //globalPanel.setTopComponent(northPanel);
+	 globalPanel.setTopComponent(new InterfaceDebut());
 	 this.getContentPane().add(globalPanel);
 	 this.validate();
 	 this.repaint();

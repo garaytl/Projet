@@ -2,7 +2,9 @@ package ihm;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -32,7 +34,8 @@ public class Plateau extends JPanel
 			this.add(label);
 			for (int j = 0; j < 10; j++)
 			{
-				JButton button = new JButton();
+				ImageIcon icon = new ImageIcon(new ImageIcon("src/ihm/goutte.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+				JButton button = new JButton(icon);
 				button.setSize(20, 20);
 				button.setBackground(Color.yellow);
 				this.add(button);
