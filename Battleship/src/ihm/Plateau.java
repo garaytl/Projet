@@ -37,7 +37,7 @@ public class Plateau extends JPanel
 				ImageIcon icon = new ImageIcon(new ImageIcon("src/ihm/goutte.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
 				JButton button = new JButton(icon);
 				button.setSize(20, 20);
-				button.setBackground(Color.yellow);
+				button.setBackground(Color.WHITE);
 				this.add(button);
 			}
 		}

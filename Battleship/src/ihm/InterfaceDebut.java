@@ -24,14 +24,15 @@ public class InterfaceDebut extends JSplitPane
 	/**
 	 * 
 	 */
-		public InterfaceDebut(){
+		public InterfaceDebut(String pseudo){
 			this.setDividerSize(0);
 			this.setResizeWeight(0.9);
 			this.setEnabled(false);
 			JPanel pan = new JPanel();
-			pan.setLayout(new GridLayout(2, 1));
-			JLabel lab = new JLabel("Posez un xxxxx en choisissant une case de départ puis une direction");
+			pan.setLayout(new GridLayout(3, 1));
+			JLabel lab = new JLabel("Posez un xxxxx en choisissant une case de dï¿½part puis une direction");
 			lab.setHorizontalAlignment(SwingConstants.CENTER);
+			pan.add(new JLabel(pseudo+" : "));
 			pan.add(lab);
 			JPanel panel = new JPanel();
 			panel.setLayout(new GridLayout(1, 4));
@@ -44,7 +45,7 @@ public class InterfaceDebut extends JSplitPane
 			JPanel pan1 = new JPanel();
 			pan1.setLayout(new GridLayout(2, 1));
 			pan1.add(new JLabel(""));
-			pan1.add(new JButton("Next"));
+			pan1.add(new JLabel(""));
 			this.setRightComponent(pan1);
 			
 			

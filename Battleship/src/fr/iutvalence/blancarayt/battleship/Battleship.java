@@ -1,5 +1,7 @@
 package fr.iutvalence.blancarayt.battleship;
 
+import ihm.Controle;
+
 import java.util.Scanner;
 
 /**
@@ -18,6 +20,7 @@ public final class Battleship
 	 */
 	public static void main(String[] args)
 	{
+		new Controle().start();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Type the first player's pseudo");
 		String pseudo1 = sc.nextLine();

@@ -3,6 +3,8 @@ package ihm;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,9 +13,11 @@ import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.SwingConstants;
 
-public class Fenetre extends JFrame
+public class Fenetre extends JFrame  implements ActionListener, Runnable
 {
- public Fenetre(){
+	private final Controle controller;
+    public Fenetre(Controle controller, String pseudo){
+	 this.controller = controller;
 	 this.setVisible(true);
 	 this.setTitle("IHM");
 	 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,7 +49,7 @@ public class Fenetre extends JFrame
 	 northPanel.setDividerSize(0);
 	 northPanel.setResizeWeight(0.9);
 	 northPanel.setRightComponent(plateau1);
-	 northPanel.setLeftComponent(new InterfaceDebut());
+	 northPanel.setLeftComponent(new InterfaceJeu());
 	 northPanel.setEnabled(false);
 	 
 	 globalPanel.setOrientation(SwingConstants.HORIZONTAL);
@@ -53,7 +57,7 @@ public class Fenetre extends JFrame
 	 globalPanel.setDividerSize(0);
 	 globalPanel.setBottomComponent(plateau2);
 	 //globalPanel.setTopComponent(northPanel);
-	 globalPanel.setTopComponent(new InterfaceDebut());
+	 globalPanel.setTopComponent(new InterfaceDebut(pseudo));
 	 this.getContentPane().add(globalPanel);
 	 this.validate();
 	 this.repaint();
@@ -61,4 +65,16 @@ public class Fenetre extends JFrame
 	 //this.pack();
 	 //this.getContentPane().add(content, BorderLayout.SOUTH);
  }
+@Override
+public void actionPerformed(ActionEvent arg0)
+{
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void run()
+{
+	// TODO Auto-generated method stub
+	
+}
 }

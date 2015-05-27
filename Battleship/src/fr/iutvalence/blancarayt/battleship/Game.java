@@ -18,7 +18,7 @@ import fr.iutvalence.blancarayt.battleship.model.ships.Submarine;
  * @author léasilé
  * @version 2.0
  */
-final class Game
+public final class Game
 {
 	/**
 	 * Player 1.
