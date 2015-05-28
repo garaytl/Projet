@@ -1,9 +1,5 @@
 package ihm;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,14 +10,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class SaisiePseudo extends JFrame implements ActionListener {
+public class NicknameEntry extends JFrame implements ActionListener {
 
-	private final Controle controller;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Controller controller;
 	private final JTextField pseudo1;
 	private final JTextField pseudo2;
 	
-	public SaisiePseudo(Controle controller) {
-		this.controller = controller;
+	public NicknameEntry(Controller control) {
+		this.controller = control;
 		this.setTitle("Saisie Pseudos");
 		this.setSize(300, 150);
 		this.setLocationRelativeTo(null);
@@ -35,10 +35,10 @@ public class SaisiePseudo extends JFrame implements ActionListener {
 		pan2.setSize(300, 70);
 
 		pseudo1 = new JTextField("Pseudo 1");
-		JLabel labelPseudo = new JLabel("Joueur 1 :");
+		JLabel labelPseudo = new JLabel("Player 1 :");
 
 		pseudo2 = new JTextField("Pseudo 2");
-		JLabel labelLevel = new JLabel("Joueur 2 :");
+		JLabel labelLevel = new JLabel("Player 2 :");
 
 		JButton valideLevel = new JButton("Valider");
 		valideLevel.addActionListener(this);
@@ -52,11 +52,8 @@ public class SaisiePseudo extends JFrame implements ActionListener {
 		pan.add(valideLevel);
 
 		
-		// On prévient notre JFrame que notre JPanel sera son content pane
 		this.setContentPane(pan);
 		this.validate();
-
-		// this.setContentPane(new Panneau());
 
 	}
 

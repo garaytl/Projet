@@ -3,11 +3,11 @@ package ihm;
 import javax.swing.JOptionPane;
 
 /**
- * Affichage
+ * Display
  * @author Elisa
  *
  */
-public class Affichage
+public class Display
 {
 	/**
 	 * Main.

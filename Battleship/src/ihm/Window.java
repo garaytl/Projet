@@ -1,22 +1,23 @@
 package ihm;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.SwingConstants;
 
-public class Fenetre extends JFrame  implements ActionListener, Runnable
+import fr.iutvalence.blancarayt.battleship.model.Player;
+
+public class Window extends JFrame  implements ActionListener, Runnable
 {
-	private final Controle controller;
-    public Fenetre(Controle controller, String pseudo){
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Controller controller;
+    public Window(Controller controller, Player player1, Player player2){
 	 this.controller = controller;
 	 this.setVisible(true);
 	 this.setTitle("IHM");
@@ -39,8 +40,8 @@ public class Fenetre extends JFrame  implements ActionListener, Runnable
 	    gbc.gridy = 0;
 	    gbc.gridheight = 1;
 	    gbc.gridwidth = 1;*/
-	JPanel plateau1=new Plateau();
-	JPanel plateau2=new Plateau();
+	JPanel plateau1=new Board(player1);
+	JPanel plateau2=new Board(player2);
 //		 gbc.gridwidth = GridBagConstraints.REMAINDER;
 /*	 northSouth.setLayout(new GridLayout(2, 2));
 	 northSouth.add(new JLabel(""));
@@ -49,7 +50,7 @@ public class Fenetre extends JFrame  implements ActionListener, Runnable
 	 northPanel.setDividerSize(0);
 	 northPanel.setResizeWeight(0.9);
 	 northPanel.setRightComponent(plateau1);
-	 northPanel.setLeftComponent(new InterfaceJeu());
+	 northPanel.setLeftComponent(new GameInterface());
 	 northPanel.setEnabled(false);
 	 
 	 globalPanel.setOrientation(SwingConstants.HORIZONTAL);
@@ -57,7 +58,7 @@ public class Fenetre extends JFrame  implements ActionListener, Runnable
 	 globalPanel.setDividerSize(0);
 	 globalPanel.setBottomComponent(plateau2);
 	 //globalPanel.setTopComponent(northPanel);
-	 globalPanel.setTopComponent(new InterfaceDebut(pseudo));
+	 globalPanel.setTopComponent(new StartingInterface(player1));
 	 this.getContentPane().add(globalPanel);
 	 this.validate();
 	 this.repaint();

@@ -6,15 +6,28 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class Plateau extends JPanel
+import fr.iutvalence.blancarayt.battleship.model.Player;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Board extends JPanel implements ActionListener 
 {
-	public Plateau()
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Player player;
+	
+	public Board(Player play)
 	{
 		super();
+		this.player=play;
 		this.setLayout(new GridLayout(11, 11));
 		this.add(new JLabel(""));
 		for (int i = 1; i < 11; i++)
@@ -28,7 +41,6 @@ public class Plateau extends JPanel
 		{
 			JLabel label = new JLabel(String.valueOf(i)+"  ");
 			label.setHorizontalAlignment(SwingConstants.RIGHT);
-			label.setBackground(Color.cyan);
 			label.repaint();
 			label.validate();
 			this.add(label);
@@ -41,5 +53,13 @@ public class Plateau extends JPanel
 				this.add(button);
 			}
 		}
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0)
+	{
+		JButtonPosition src =(JButtonPosition) arg0.getSource();
+		new DirectionInterface(src.getX(),src.getY(),player);
+		
 	}
 }
